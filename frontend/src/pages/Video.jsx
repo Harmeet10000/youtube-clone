@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownOffAltOutlinedIcon from "@mui/icons-material/ThumbDownOffAltOutlined";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
@@ -68,7 +68,6 @@ const Subscribe = styled.button`
   padding: 10px 20px;
   cursor: pointer;
 `;
-
 
 const Video = () => {
   return (
@@ -140,6 +139,6 @@ const Video = () => {
       </Recommendation>
     </Container>
   );
-}
+};
 
-export default Video
+export default Video;

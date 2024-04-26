@@ -112,7 +112,7 @@ const Menu = ({darkMode, setDarkMode}) => {
         </Item>
         <Hr />
         <Title>
-          You <ChevronRightOutlinedIcon />{" "}
+          You <ChevronRightOutlinedIcon />
         </Title>
 
         <Item>

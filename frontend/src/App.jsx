@@ -11,6 +11,7 @@ import { darkTheme, lightTheme } from "./utils/themes.js";
 import Home from "./pages/Home.jsx";
 import Video from "./pages/Video.jsx";
 import { useState } from "react";
+import SignIn from "./pages/SignIn.jsx";
 
 const Container = styled.div`
   display: flex;
@@ -35,11 +36,11 @@ const App = () => {
             <Navbar />
             <Wrapper>
               <Routes>
-                <Route path="/" >
-                  <Route index element={<Home/>}/>
-                  <Route path="video"/>
-                  <Route path=":id" element={<Video/>}/>
-
+                <Route path="/">
+                  <Route index element={<Home />} />
+                  <Route path="signin" element={<SignIn />} />
+                  <Route path="video" />
+                  <Route path=":id" element={<Video />} />
                 </Route>
               </Routes>
             </Wrapper>

@@ -53,12 +53,12 @@ const Info = styled.div`
   color: ${({ theme }) => theme.textSoft};
 `;
 
-const card = () => {
+const card = ({type}) => {
   return (
     <Link>
-      <Container>
+      <Container type={type}>
         <Image src={image} />
-        <Details>
+        <Details type={type}>
           <ChannelImage src={channelImage} />
           <Texts>
             <Title>Video Title</Title>
