@@ -28,6 +28,7 @@ const Wrapper = styled.div`
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true);
+
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Container>

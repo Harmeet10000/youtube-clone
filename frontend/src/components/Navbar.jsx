@@ -5,7 +5,10 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import VideoCallOutlinedIcon from "@mui/icons-material/VideoCallOutlined";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-//import Upload from "./Upload";
+import Upload from "./Upload";
+import languageSelector from "./lng-selector";
+import { useTranslation } from "react-i18next";
+
 
 const Container = styled.div`
   position: sticky;
@@ -78,6 +81,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
   const { currentUser } = useSelector((state) => state.user);
+  const { t } = useTranslation();   // kaam baki hai
+
   return (
     <>
       <Container>
@@ -103,6 +108,7 @@ const Navbar = () => {
               </Button>
             </Link>
           )}
+          <languageSelector />
         </Wrapper>
       </Container>
       {open && <Upload setOpen={setOpen} />}
