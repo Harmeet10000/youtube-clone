@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Card from "./Car.jsx";
+import Card from "./Card.jsx";
 
 const Container = styled.div`
   flex: 2;
