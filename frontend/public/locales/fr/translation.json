@@ -1,7 +1,34 @@
 {
-    "greeting": "Bonjour, Bienvenue !",
-    "description": {
-        "line1": "Vous regardez la chaîne YouTube <1>{{channel}}</1>",
-        "line2": "Ceci est un tutoriel d'internationalisation"
-    }
+    "greeting": "Bonjour",
+    "Sign In": "Connexion",
+    "Search": "Recherche",
+    "Home": "Accueil",
+    "Explore": "Explorer",
+    "Library": "Bibliothèque",
+    "History": "Historique",
+    "Sign in to like videos, comment, and subscribe.": "Connectez-vous pour aimer les vidéos, commenter et vous abonner.",
+    "SIGN IN": "CONNEXION",
+    "Movies": "Films",
+    "News": "Actualités",
+    "Live": "Direct",
+    "Settings": "Paramètres",
+    "Report": "Signaler",
+    "Help": "Aide",
+    "Mode": "Mode",
+    "Subscriptions": "Abonnements",
+    "to continue to YouTube": "pour continuer sur YouTube",
+    "Sign In with Google": "Se connecter avec Google",
+    "Sign up": "S'inscrire",
+    "Privacy": "Confidentialité",
+    "Terms": "Conditions",
+    "subscribers": "abonnés",
+    "Save": "Enregistrer",
+    "views": "vues",
+    "like": "J'aime",
+    "dislike": "Je n'aime pas",
+    "Share": "Partager",
+    "Music": "Musique",
+    "Sports": "Sports",
+    "Gaming": "Jeu vidéo"
+    
 }

@@ -1,7 +1,32 @@
 {
-    "greeting": "नमस्ते, आपका स्वागत है!",
-    "description": {
-        "line1": "आप <1>{{channel}}</1> यूट्यूब चैनल देख रहे हैं",
-        "line2": "यह एक अंतर्राष्ट्रीयकरण ट्यूटोरियल है"
-    }
+    "greeting": "नमस्ते",
+    "Sign In": "साइन इन करें",
+    "Search": "खोजें",
+    "Home": "होम",
+    "Explore": "खोजें",
+    "Library": "लाइब्रेरी",
+    "History": "इतिहास",
+    "Sign in to like videos, comment, and subscribe.": "वीडियो पसंद करने, टिप्पणी करने और सदस्यता लेने के लिए साइन इन करें।",
+    "SIGN IN": "साइन इन करें",
+    "Movies": "फिल्में",
+    "News": "समाचार",
+    "Live": "लाइव",
+    "Settings": "सेटिंग्स",
+    "Report": "रिपोर्ट करें",
+    "Help": "मदद",
+    "Mode": "मोड",
+    "Subscriptions": "सदस्यताएं",
+    "to continue to YouTube": "YouTube पर जारी रखने के लिए",
+    "Sign In with Google": "Google के साथ साइन इन करें",
+    "Sign up": "साइन अप करें",
+    "Privacy": "गोपनीयता",
+    "Terms": "नियम और शर्तें",
+    "subscribers": "सब्सक्राइबर",
+    "Save": "सहेजें",
+    "views": "देखे गए",
+    "like": "पसंद",
+    "dislike": "नापसंद",
+    "Music": "संगीत",
+    "Sports": "खेल",
+    "Gaming": "गेमिंग"
 }

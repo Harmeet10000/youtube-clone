@@ -20,6 +20,7 @@ import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightne
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   flex: 1;
@@ -65,7 +66,6 @@ const Hr = styled.hr`
   border: 0.5px solid ${({ theme }) => theme.soft};
 `;
 
-
 const Login = styled.div``;
 const Button = styled.button`
   padding: 5px 15px;
@@ -90,8 +90,9 @@ const Title = styled.h2`
   color: ${({ theme }) => theme.text};
 `;
 
-const Menu = ({darkMode, setDarkMode}) => {
-    const { currentUser } = useSelector((state) => state.user);
+const Menu = ({ darkMode, setDarkMode }) => {
+  const { currentUser } = useSelector((state) => state.user);
+  const { t } = useTranslation();
 
   return (
     <Container>
@@ -103,90 +104,91 @@ const Menu = ({darkMode, setDarkMode}) => {
           </Logo>
         </Link>
         <Item>
-          <HomeIcon /> Home
+          <HomeIcon /> {t("Home")}
         </Item>
         <Link to="trends" style={{ textDecoration: "none", color: "inherit" }}>
           <Item>
             <ExploreOutlinedIcon />
-            Explore
+            {t("Explore")}
           </Item>
         </Link>
         <Link
           to="subscriptions"
           style={{ textDecoration: "none", color: "inherit" }}
         >
-        <Item>
-          <SubscriptionsOutlinedIcon />
-          Subscriptions
-        </Item>
+          <Item>
+            <SubscriptionsOutlinedIcon />
+            {t("Subscriptions")}
+          </Item>
         </Link>
         <Hr />
         <Title>
-          You <ChevronRightOutlinedIcon />
+          {t(" You")} <ChevronRightOutlinedIcon />
         </Title>
 
         <Item>
           <VideoLibraryOutlinedIcon />
-          Library
+          {t("Library")}
         </Item>
         <Item>
           <HistoryOutlinedIcon />
-          History
+          {t("History")}
         </Item>
         <Hr />
-        {!currentUser && <>
-        <Login>
-          Sign in to like videos, comment, and subscribe.
-          <Link to="signin" style={{ textDecoration: "none" }}>
-            <Button>
-              <AccountCircleOutlinedIcon />
-              SIGN IN
-            </Button>
-          </Link>
-        </Login>
-        <Hr />
-      </>
-      }
+        {!currentUser && (
+          <>
+            <Login>
+              Sign in to like videos, comment, and subscribe.
+              <Link to="signin" style={{ textDecoration: "none" }}>
+                <Button>
+                  <AccountCircleOutlinedIcon />
+                  {t("SIGN IN")}
+                </Button>
+              </Link>
+            </Login>
+            <Hr />
+          </>
+        )}
         <Item>
           <LibraryMusicOutlinedIcon />
-          Music
+          {t("Music")}
         </Item>
         <Item>
           <SportsBasketballOutlinedIcon />
-          Sports
+          {t("Sports")}
         </Item>
         <Item>
           <SportsEsportsOutlinedIcon />
-          Gaming
+          {t("Gaming")}
         </Item>
         <Item>
           <MovieOutlinedIcon />
-          Movies
+          {t("Movies")}
         </Item>
         <Item>
           <ArticleOutlinedIcon />
-          News
+          {t("News")}
         </Item>
         <Item>
           <LiveTvOutlinedIcon />
-          Live
+          {t("Live")}
         </Item>
         <Hr />
         <Item>
           <SettingsOutlinedIcon />
-          Settings
+          {t("Settings")}
         </Item>
         <Item>
           <FlagOutlinedIcon />
-          Report
+          {t("Report")}
         </Item>
         <Item>
           <HelpOutlineOutlinedIcon />
-          Help
+          {t("Help")}
         </Item>
         <Item onClick={() => setDarkMode(!darkMode)}>
           <SettingsBrightnessOutlinedIcon />
-          {darkMode ? "Light" : "Dark"} Mode
+          {darkMode ? "Light" : "Dark"} {t("Mode")}
         </Item>
       </Wrapper>
     </Container>

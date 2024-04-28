@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { signInWithPopup } from "firebase/auth";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   display: flex;
@@ -63,54 +64,54 @@ const Links = styled.div`
 `;
 
 const Link = styled.span`
-margin-left: 30px;
+  margin-left: 30px;
 `;
 
 const SignIn = () => {
-  
-const handleLogin = async (e) => {
-  e.preventDefault();
-  dispatch(loginStart());
-  try {
-    const res = await axios.post("/auth/signin", { name, password });
-    dispatch(loginSuccess(res.data));
-    navigate("/");
-  } catch (err) {
-    dispatch(loginFailure());
-  }
-};
-
-const signInWithGoogle = async () => {
-  dispatch(loginStart());
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      axios
-        .post("/auth/google", {
-          name: result.user.displayName,
-          email: result.user.email,
-          img: result.user.photoURL,
-        })
-        .then((res) => {
-          console.log(res);
-          dispatch(loginSuccess(res.data));
-          navigate("/");
-        });
-    })
-    .catch((error) => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    dispatch(loginStart());
+    try {
+      const res = await axios.post("/auth/signin", { name, password });
+      dispatch(loginSuccess(res.data));
+      navigate("/");
+    } catch (err) {
       dispatch(loginFailure());
-    });
-};
+    }
+  };
+
+  const signInWithGoogle = async () => {
+    dispatch(loginStart());
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        axios
+          .post("/auth/google", {
+            name: result.user.displayName,
+            email: result.user.email,
+            img: result.user.photoURL,
+          })
+          .then((res) => {
+            console.log(res);
+            dispatch(loginSuccess(res.data));
+            navigate("/");
+          });
+      })
+      .catch((error) => {
+        dispatch(loginFailure());
+      });
+  };
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   return (
     <Container>
       <Wrapper>
-        <Title>Sign in</Title>
-        <SubTitle>to continue to LamaTube</SubTitle>
+        <Title>{t("Sign in")}</Title>
+        <SubTitle>{t("to continue to YouTube")}</SubTitle>
         <Input
           placeholder="username"
           onChange={(e) => setName(e.target.value)}
@@ -120,9 +121,9 @@ const signInWithGoogle = async () => {
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button onClick={handleLogin}>Sign In</Button>
+        <Button onClick={handleLogin}>{t("Sign In")}</Button>
         <Title>or</Title>
-        <Button onClick={signInWithGoogle}>Sign In with Google</Button>
+        <Button onClick={signInWithGoogle}>{t("Sign In with Google")}</Button>
         <Title>or</Title>
         <Input
           placeholder="username"
@@ -134,14 +135,14 @@ const signInWithGoogle = async () => {
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button>Sign up</Button>
+        <Button>{t("Sign up")}</Button>
       </Wrapper>
       <More>
         English(USA)
         <Links>
-          <Link>Help</Link>
-          <Link>Privacy</Link>
-          <Link>Terms</Link>
+          <Link>{t("Help")}</Link>
+          <Link>{t("Privacy")}</Link>
+          <Link>{t("Terms")}</Link>
         </Links>
       </More>
     </Container>

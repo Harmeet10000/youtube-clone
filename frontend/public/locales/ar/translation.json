@@ -1,7 +1,33 @@
 {
     "greeting": "مرحبا، أهلا بك!",
-    "description": {
-        "line1": "أنت تشاهد قناة <1>{{channel}}</1> على اليوتيوب",
-        "line2": "هذا هو البرنامج التعليمي للتدويل"
-    }
+    "Sign In": "تسجيل الدخول",
+    "Search": "بحث",
+    "Home": "الصفحة الرئيسية",
+    "Explore": "يستكشف",
+    "Library": "المكتبة",
+    "History": "أتاريخنت",
+    "Sign in to like videos, comment, and subscribe.": "قم بتسجيل الدخول للإعجاب بمقاطع الفيديو والتعليق والاشتراك.",
+    "SIGN IN": "تسجيل الدخول",
+    "Gaming": "أنالألعابت",
+    "Movies": "أفلام",
+    "News": "أخبار",
+    "Live": "حي",
+    "Settings": "الإعدادا",
+    "Report": "يبلغ",
+    "Help": "مساعدة",
+    "Mode": "وضع",
+    "Subscriptions": "الاشتراكات",
+    "to continue to YouTube": "لمتابعة استخدام YouTube",
+    "Sign In with Google": "تسجيل الدخول بحساب Google",
+    "Sign up": "يسجل",
+    "Privacy": "الخصوصية",
+    "Terms": "البنود",
+    "subscribers": "المشتركين",
+    "Save": "يحفظ",
+    "views": "الآراء",
+    "like": "يحب",
+    "dislike": "لا يحب",
+    "Music": "موسيقى ",
+    "Sports": "رياضة ",
+    "Gaming": "ألعاب "
 }

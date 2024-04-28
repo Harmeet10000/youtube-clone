@@ -6,9 +6,10 @@ import VideoCallOutlinedIcon from "@mui/icons-material/VideoCallOutlined";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Upload from "./Upload";
-import languageSelector from "./lng-selector";
+import LanguageSelector from "./lng-selector";
 import { useTranslation } from "react-i18next";
-
+import { useSpeechRecognition } from "react-speech-recognition";
+import Mic from "./Mic";
 
 const Container = styled.div`
   position: sticky;
@@ -76,12 +77,19 @@ const Avatar = styled.img`
   background-color: #999;
 `;
 
+
+
 const Navbar = () => {
-  const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
+  const [openV, setOpenV] = useState(false);
   const [q, setQ] = useState("");
   const { currentUser } = useSelector((state) => state.user);
-  const { t } = useTranslation();   // kaam baki hai
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { browserSupportsSpeechRecognition } = useSpeechRecognition();
+
+  if (!browserSupportsSpeechRecognition) {
+    return <span>Browser doesn't support speech recognition.</span>;
+  }
 
   return (
     <>
@@ -94,9 +102,12 @@ const Navbar = () => {
             />
             <SearchOutlinedIcon onClick={() => navigate(`/search?q=${q}`)} />
           </Search>
+
+          <Mic />
+
           {currentUser ? (
             <User>
-              <VideoCallOutlinedIcon onClick={() => setOpen(true)} />
+              <VideoCallOutlinedIcon onClick={() => setOpenV(true)} />
               <Avatar src={currentUser.img} />
               {currentUser.name}
             </User>
@@ -104,14 +115,15 @@ const Navbar = () => {
             <Link to="signin" style={{ textDecoration: "none" }}>
               <Button>
                 <AccountCircleOutlinedIcon />
-                SIGN IN
+                {t("SIGN IN")}
               </Button>
+
+              <LanguageSelector />
             </Link>
           )}
-          <languageSelector />
         </Wrapper>
       </Container>
-      {open && <Upload setOpen={setOpen} />}
+      {openV && <Upload setOpenV={setOpenV} />}
     </>
   );
 };

@@ -15,6 +15,7 @@ import { dislike, fetchSuccess, like } from "../redux/videoSlice";
 import { format } from "timeago.js";
 import { subscription } from "../redux/userSlice";
 import Recommendation from "../components/Recommendations.jsx";
+import { t } from "i18next";
 
 const Container = styled.div`
   display: flex;
@@ -166,7 +167,7 @@ const Video = () => {
         <Title>{currentVideo.title}</Title>
         <Details>
           <Info>
-            {currentVideo.views} views • {format(currentVideo.createdAt)}
+            {currentVideo.views} {t("views")} • {format(currentVideo.createdAt)}
           </Info>
           <Buttons>
             <Button onClick={handleLike}>
@@ -175,21 +176,21 @@ const Video = () => {
               ) : (
                 <ThumbUpOutlinedIcon />
               )}{" "}
-              {currentVideo.likes?.length}
+              {currentVideo.likes?.length} {t("Like")}
             </Button>
             <Button onClick={handleDislike}>
               {currentVideo.dislikes?.includes(currentUser?._id) ? (
                 <ThumbDownIcon />
               ) : (
                 <ThumbDownOffAltOutlinedIcon />
-              )}{" "}
-              Dislike
+              )}
+              {t("Dislike ")}
             </Button>
             <Button>
               <ReplyOutlinedIcon /> Share
             </Button>
             <Button>
-              <AddTaskOutlinedIcon /> Save
+              <AddTaskOutlinedIcon /> {t("Save")}
             </Button>
           </Buttons>
         </Details>
@@ -199,7 +200,9 @@ const Video = () => {
             <Image src={channel.img} />
             <ChannelDetail>
               <ChannelName>{channel.name}</ChannelName>
-              <ChannelCounter>{channel.subscribers} subscribers</ChannelCounter>
+              <ChannelCounter>
+                {channel.subscribers} {t("subscribers")}
+              </ChannelCounter>
               <Description>{currentVideo.desc}</Description>
             </ChannelDetail>
           </ChannelInfo>

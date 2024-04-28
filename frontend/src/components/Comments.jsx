@@ -30,6 +30,7 @@ const Input = styled.input`
 
 const Comments = ({ videoId }) => {
   const { currentUser } = useSelector((state) => state.user);
+  const { t } = useTranslation();   
 
   const [comments, setComments] = useState([]);
 
@@ -49,7 +50,7 @@ const Comments = ({ videoId }) => {
     <Container>
       <NewComment>
         <Avatar src={currentUser.img} />
-        <Input placeholder="Add a comment..." />
+        <Input placeholder={t("Add a comment...")} />
       </NewComment>
       {comments.map((comment) => (
         <Comment key={comment._id} comment={comment} />
