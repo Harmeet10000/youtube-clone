@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import VideoCallOutlinedIcon from "@mui/icons-material/VideoCallOutlined";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Mic from "./Mic.jsx";
 import Upload from "./Upload";
 import LanguageSelector from "./lng-selector";
 import { useTranslation } from "react-i18next";
 import { useSpeechRecognition } from "react-speech-recognition";
-import Mic from "./Mic";
 
 const Container = styled.div`
   position: sticky;
@@ -38,14 +38,16 @@ const Search = styled.div`
   justify-content: space-between;
   padding: 5px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 20px;
   color: ${({ theme }) => theme.text};
 `;
 
 const Input = styled.input`
   border: none;
+  width: 100%;
   background-color: transparent;
   outline: none;
+  cursor: text;
   color: ${({ theme }) => theme.text};
 `;
 
@@ -77,19 +79,31 @@ const Avatar = styled.img`
   background-color: #999;
 `;
 
-
-
 const Navbar = () => {
   const [openV, setOpenV] = useState(false);
   const [q, setQ] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const { currentUser } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { browserSupportsSpeechRecognition } = useSpeechRecognition();
+  const { transcript } = useSpeechRecognition();
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-  if (!browserSupportsSpeechRecognition) {
-    return <span>Browser doesn't support speech recognition.</span>;
-  }
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+  // useEffect(() => {
+  //   if (transcript) {
+  //     setInputValue(transcript);
+  //   }
+  // }, [transcript]);
 
   return (
     <>
@@ -97,19 +111,32 @@ const Navbar = () => {
         <Wrapper>
           <Search>
             <Input
-              placeholder="Search"
+              placeholder={t("Search")}
               onChange={(e) => setQ(e.target.value)}
+              //value={inputValue}
             />
             <SearchOutlinedIcon onClick={() => navigate(`/search?q=${q}`)} />
+            <Mic />
           </Search>
-
-          <Mic />
-
           {currentUser ? (
             <User>
               <VideoCallOutlinedIcon onClick={() => setOpenV(true)} />
-              <Avatar src={currentUser.img} />
+              <Avatar src={currentUser.img} handleClick />
               {currentUser.name}
+              <Popover
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+              >
+                <Typography sx={{ p: 2 }}>
+                  The content of the Popover.
+                </Typography>
+              </Popover>
             </User>
           ) : (
             <Link to="signin" style={{ textDecoration: "none" }}>
