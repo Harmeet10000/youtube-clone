@@ -18,7 +18,8 @@ import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
-import { Link } from "react-router-dom";
+import CurrencyRupeeTwoToneIcon from "@mui/icons-material/CurrencyRupeeTwoTone";
+import { Link, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
@@ -119,6 +120,16 @@ const Menu = ({ darkMode, setDarkMode }) => {
           <Item>
             <SubscriptionsOutlinedIcon />
             {t("Subscriptions")}
+          </Item>
+        </Link>
+
+        <Link
+          to="/payment"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <Item>
+            <CurrencyRupeeTwoToneIcon />
+            Buy Premium
           </Item>
         </Link>
         <Hr />

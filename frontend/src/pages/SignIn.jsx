@@ -1,9 +1,12 @@
 import axios from "axios";
+import styled from "styled-components";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
 import { signInWithPopup } from "firebase/auth";
 import { useTranslation } from "react-i18next";
+import { loginFailure, loginStart, loginSuccess } from "../redux/userSlice";
+import { auth, provider } from "../firebase";
+import { async } from "@firebase/util";
 
 const Container = styled.div`
   display: flex;
@@ -129,7 +132,8 @@ const SignIn = () => {
           placeholder="username"
           onChange={(e) => setName(e.target.value)}
         />
-        <Input placeholder="email" onChange={(e) => setEmail(e.target.value)} />
+        <Input placeholder="email" 
+               onChange={(e) => setEmail(e.target.value)} />
         <Input
           type="password"
           placeholder="password"
