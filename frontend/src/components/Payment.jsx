@@ -36,10 +36,10 @@ const Payment = () => {
   const checkoutHandler = async (amount) => {
     const {
       data: { key },
-    } = await axios.get("http://www.localhost:5173/api/getkey");
+    } = await axios.get("http://www.localhost:3000/api/getkey");
     const {
       data: { order },
-    } = await axios.post("http://www.localhost:5173/api/checkout");
+    } = await axios.post("http://www.localhost:3000/api/checkout");
 
     const options = {
       key, // Enter the Key ID generated from the Dashboard

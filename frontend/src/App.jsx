@@ -13,6 +13,7 @@ import { useState } from "react";
 import SignIn from "./pages/SignIn.jsx";
 import Search from "./pages/Search.jsx";
 import Payment from "./components/Payment.jsx";
+import PaymentSuccess from "./pages/PaymentSuccess.jsx";
 const Container = styled.div`
   display: flex;
 `;
@@ -43,7 +44,7 @@ const App = () => {
                   <Route path="subscriptions" element={<Home type="sub" />} />
                   <Route path="search" element={<Search />} />
                   <Route path="payment" element={<Payment />} />
-
+                  <Route path="/paymentsuccess" element={<PaymentSuccess />} />
                   <Route path="signin" element={<SignIn />} />
                   <Route path="video" />
                   <Route path=":id" element={<Video />} />
